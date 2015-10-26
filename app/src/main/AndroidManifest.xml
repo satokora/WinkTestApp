@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.it494.skora.turnpage">
+
+    <uses-permission android:name="com.google.android.glass.permission.DEVELOPMENT" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!--<activity-->
+            <!--android:name=".MainActivity"-->
+            <!--android:icon="@drawable/ic_glass_logo"-->
+            <!--android:label="TurnPage">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.google.android.glass.action.VOICE_TRIGGER" />-->
+            <!--</intent-filter>-->
+
+            <!--<meta-data-->
+                <!--android:name="com.google.android.glass.VoiceTrigger"-->
+                <!--android:resource="@xml/voice_trigger" />-->
+        <!--</activity>-->
+
+        <service
+            android:name=".MainService"
+            android:exported="true"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.google.android.glass.VoiceTrigger"
+                android:resource="@xml/voice_trigger" />
+        </service>
+
+        <receiver android:name=".EyeGesture">
+            <intent-filter>
+                <action android:name="com.google.android.glass.action.EYE_GESTURE" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".MainActivity" />
+
+        <!--<service-->
+            <!--android:name=".MainService"-->
+            <!--android:enabled="true"-->
+            <!--android:exported="true"></service>-->
+    </application>
+
+</manifest>
